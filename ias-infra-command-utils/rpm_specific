@@ -1,4 +1,4 @@
-#Requires: 
+Requires: ias-bash-script-infra
 AutoReqProv: no 
 Summary: A collection of utilities that assist with infrastructure
 Group: Generic Group
