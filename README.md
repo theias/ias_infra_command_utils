@@ -1,10 +1,10 @@
 # ias-infra-command-utils
 
-Here is an introduction to this project.
+
 
 # License
 
-copyright (C) 2017 Author, Institution
+copyright (C) 2017 Martin VanWinkle, Institute for Advanced Study
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -22,7 +22,11 @@ See
 
 ## Description
 
-* some_script.sh - does something.
+* list\_but\_hide.sh - Given a directory it will:
+	* Gather a list of all files in that directory
+	* Sort it by mtime
+	* Remove the first "hide" number of files from the list
+	* List the files older than "max_age"
 
 # Supplemental Documentation
 
