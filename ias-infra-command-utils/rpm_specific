@@ -1,0 +1,7 @@
+#Requires: 
+AutoReqProv: no 
+Summary: A collection of utilities that assist with infrastructure
+Group: Generic Group
+License: Generic License
+Vendor: Generic Vendor
+BuildArch: noarch
