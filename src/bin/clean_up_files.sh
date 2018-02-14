@@ -28,10 +28,14 @@ exit_status=${PIPESTATUS[0]}
 
 write_log_informational "Exit status: ${exit_status}"
 
-if [[ ! $exit_status ]]; then
-	error_message=`cat "$error_log"`
-	write_log_error "$error_message"
+if [[ "$exit_status" != "0" ]]; then
+	cat "$error_log" | while read i
+	do
+		write_log_error "$i"
+	done
 fi
+
+rm $error_log
 
 write_log_end
 exit $exit_status
