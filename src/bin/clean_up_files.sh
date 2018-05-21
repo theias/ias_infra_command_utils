@@ -19,16 +19,18 @@ write_log_start
 
 error_log=`get_log_file_path`.$$.err
 
-`get_bin_dir`/list_but_hide.sh $@ 2> >(tee -a $error_log >&2) \
+`get_bin_dir`/list_but_hide.sh "$@" 2> >(tee -a $error_log >&2) \
 	| while read i
 do
 	write_log_informational "Removing: $i"
+	rm "$i" 2> >(tee -a $error_log >&2) 
 done
 exit_status=${PIPESTATUS[0]}
 
 write_log_informational "Exit status: ${exit_status}"
 
-if [[ "$exit_status" != "0" ]]; then
+if [[ -s "$error_log" ]]; then
+	write_log_err "Error log follows."
 	cat "$error_log" | while read i
 	do
 		write_log_error "$i"
